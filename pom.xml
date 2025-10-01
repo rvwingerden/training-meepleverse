@@ -76,7 +76,7 @@
 	</dependencies>
 
 	<build>
-		<finalName>app</finalName>
+		<finalName>meepleverse</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
