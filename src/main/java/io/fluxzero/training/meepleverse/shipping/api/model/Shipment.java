@@ -1,9 +1,13 @@
 package io.fluxzero.training.meepleverse.shipping.api.model;
 
+import io.fluxzero.common.serialization.Revision;
 import io.fluxzero.sdk.modeling.Aggregate;
+
+import java.util.List;
 
 import static io.fluxzero.sdk.modeling.EventPublication.IF_MODIFIED;
 
 @Aggregate(searchable = true, eventPublication = IF_MODIFIED)
-public record Shipment(ShipmentId shipmentId, ShipmentDetails details) {
+@Revision(1)
+public record Shipment(ShipmentId shipmentId, List<ShipmentDetails> details) {
 }

@@ -2,6 +2,7 @@ package io.fluxzero.training.meepleverse.shipping.api;
 
 import io.fluxzero.sdk.Fluxzero;
 import io.fluxzero.sdk.common.exception.FunctionalException;
+import io.fluxzero.sdk.tracking.Consumer;
 import io.fluxzero.sdk.tracking.TrackSelf;
 import io.fluxzero.sdk.web.HttpRequestMethod;
 import io.fluxzero.sdk.web.WebRequest;
@@ -13,9 +14,12 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 import lombok.Value;
 
+import java.util.List;
+
 import static io.fluxzero.sdk.configuration.ApplicationProperties.requireProperty;
 
 @Value
+@Consumer(name="SendShipment")
 @TrackSelf
 public class SendShipment extends SendWebRequest {
     String proxyConsumer = "proxy-shipments";
@@ -25,7 +29,7 @@ public class SendShipment extends SendWebRequest {
 
     @Override
     public Object handle(Sender sender) {
-        Fluxzero.loadAggregate(shipmentId).assertAndApply(new ShipmentSent(shipmentId, details));
+        Fluxzero.loadAggregate(shipmentId).assertAndApply(new ShipmentSent(shipmentId, List.of(details)));
         try {
             return super.handle(sender);
         } catch (FunctionalException e) {
