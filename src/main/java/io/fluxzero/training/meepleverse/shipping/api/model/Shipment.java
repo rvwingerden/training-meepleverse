@@ -9,5 +9,5 @@ import static io.fluxzero.sdk.modeling.EventPublication.IF_MODIFIED;
 
 @Aggregate(searchable = true, eventPublication = IF_MODIFIED)
 @Revision(1)
-public record Shipment(ShipmentId shipmentId, List<ShipmentDetails> details) {
+public record Shipment(ShipmentId shipmentId, ShipmentDetails details) {
 }

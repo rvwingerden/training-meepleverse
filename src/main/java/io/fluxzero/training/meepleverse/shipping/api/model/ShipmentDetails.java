@@ -6,5 +6,7 @@ import io.fluxzero.training.meepleverse.orders.api.model.OrderId;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotNull;
 
-public record ShipmentDetails(@NotNull ItemId itemId, @NotNull OrderId orderId, @NotNull @Valid Addressee addressee) {
+import java.util.List;
+
+public record ShipmentDetails(List<@NotNull ItemId> itemId, @NotNull OrderId orderId, @NotNull @Valid Addressee addressee) {
 }

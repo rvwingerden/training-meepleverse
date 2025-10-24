@@ -29,7 +29,7 @@ public class SendShipment extends SendWebRequest {
 
     @Override
     public Object handle(Sender sender) {
-        Fluxzero.loadAggregate(shipmentId).assertAndApply(new ShipmentSent(shipmentId, List.of(details)));
+        Fluxzero.loadAggregate(shipmentId).assertAndApply(new ShipmentSent(shipmentId, details));
         try {
             return super.handle(sender);
         } catch (FunctionalException e) {

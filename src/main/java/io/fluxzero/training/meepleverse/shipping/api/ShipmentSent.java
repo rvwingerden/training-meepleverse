@@ -12,7 +12,7 @@ import jakarta.validation.constraints.NotNull;
 import java.util.List;
 
 @Revision(1)
-public record ShipmentSent(ShipmentId shipmentId, @NotEmpty List<@Valid @NotNull ShipmentDetails> details) implements ShipmentUpdate {
+public record ShipmentSent(ShipmentId shipmentId, @Valid @NotNull ShipmentDetails details) implements ShipmentUpdate {
 
     @Apply
     Shipment apply() {

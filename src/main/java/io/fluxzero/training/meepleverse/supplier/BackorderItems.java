@@ -2,6 +2,7 @@ package io.fluxzero.training.meepleverse.supplier;
 
 import io.fluxzero.sdk.Fluxzero;
 import io.fluxzero.sdk.common.exception.FunctionalException;
+import io.fluxzero.sdk.tracking.Consumer;
 import io.fluxzero.sdk.tracking.TrackSelf;
 import io.fluxzero.sdk.web.HttpRequestMethod;
 import io.fluxzero.sdk.web.WebRequest;
